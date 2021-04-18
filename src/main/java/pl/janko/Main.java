@@ -1,9 +1,11 @@
 package pl.janko;
 
+import java.util.stream.Stream;
+
 public class Main {
 
-    public Main(){
-
+    public static void main(String[] args) {
+        basicStream();
     }
     private static Employee[] arrayOfEmps = {
             new Employee(1, "Jeff Bezos", 55),
@@ -11,5 +13,12 @@ public class Main {
             new Employee(3, "Mark Zuckerberg", 18)
     };
 
-
+    /*
+    creating basic stream of Stream<> object - Stream<T> name = Stream.of(<T> elements);
+     */
+    private static void basicStream(){
+        Stream<Integer> intStream = Stream.of(10, 9, 8, 7, 6, 5, 4, 3, 2, 1);
+        //contain stream() method coz it's stream
+        intStream.forEach(System.out::println);
+    }
 }
