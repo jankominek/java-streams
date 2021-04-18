@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class Filter {
+public class FilterStream {
 
     List<Employee> employees = Arrays.asList(new Employee[]{
             new Employee(1, "John", 23),
@@ -18,7 +18,7 @@ public class Filter {
             new Employee(6, "James", 18)
     });
 
-    public Filter(){
+    public FilterStream(){
 
     }
 
@@ -36,7 +36,7 @@ public class Filter {
         List<String> str1 = strArray.stream().filter(element -> element.startsWith("a")).collect(Collectors.toList());
         System.out.println(str1);
         //with method reference
-        List<String> str2 = strArray.stream().filter(Filter::hasALetterOnStart).collect(Collectors.toList());
+        List<String> str2 = strArray.stream().filter(FilterStream::hasALetterOnStart).collect(Collectors.toList());
         System.out.println(str2);
     }
     public void filterMethodWithRegex(){

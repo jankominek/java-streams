@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 public class Main {
 
     public static void main(String[] args) {
-        Filter filter = new Filter();
+        FilterStream filter = new FilterStream();
         filter.startWithLowercase();
         filter.filterMethodWithRegex();
         filter.filterWithTwoArguments();

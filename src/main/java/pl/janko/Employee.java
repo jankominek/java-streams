@@ -36,10 +36,4 @@ public class Employee {
         this.age = age;
     }
 
-    public static boolean startWithLetter(Employee employee) {
-        return employee.name.startsWith("J");
-    }
-    public static boolean isLessThanNum(Employee employee){
-        return employee.age < 25;
-    }
 }
