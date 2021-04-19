@@ -13,6 +13,7 @@ public class Main {
         //filter.filterWithTwoArguments();
 
         mapStream.toUpper();
+        mapStream.getObjectValue();
         //basicStream();
     }
     private static Employee[] arrayOfEmps = {
