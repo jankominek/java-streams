@@ -44,4 +44,5 @@ public class MapStream {
         List<String> strRes2 = employees.stream().map(Employee::getName).map(String::toUpperCase).collect(Collectors.toList());
         System.out.println(strRes2);
     }
+
 }

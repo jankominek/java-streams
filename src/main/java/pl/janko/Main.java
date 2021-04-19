@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         FilterStream filter = new FilterStream();
         MapStream mapStream = new MapStream();
+        Advanced advancedStreams = new Advanced();
 
         //filter.startWithLowercase();
         //filter.filterMethodWithRegex();
@@ -14,6 +15,8 @@ public class Main {
 
         mapStream.toUpper();
         mapStream.getObjectValue();
+
+
         //basicStream();
     }
     private static Employee[] arrayOfEmps = {
