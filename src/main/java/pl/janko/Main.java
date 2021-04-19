@@ -6,9 +6,13 @@ public class Main {
 
     public static void main(String[] args) {
         FilterStream filter = new FilterStream();
-        filter.startWithLowercase();
-        filter.filterMethodWithRegex();
-        filter.filterWithTwoArguments();
+        MapStream mapStream = new MapStream();
+
+        //filter.startWithLowercase();
+        //filter.filterMethodWithRegex();
+        //filter.filterWithTwoArguments();
+
+        mapStream.toUpper();
         //basicStream();
     }
     private static Employee[] arrayOfEmps = {
