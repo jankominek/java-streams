@@ -15,19 +15,17 @@ public class Main {
 
         mapStream.toUpper();
         mapStream.getObjectValue();
+        mapStream.getLengthOfStrings();
 
         advancedStreams.example1();
         advancedStreams.example2Sorting();
         advancedStreams.example3Peek();
+        advancedStreams.mapToIntDoubleFunction();
+
 
 
         //basicStream();
     }
-    private static Employee[] arrayOfEmps = {
-            new Employee(1, "Jeff Bezos", 55),
-            new Employee(2, "Bill Gates", 34),
-            new Employee(3, "Mark Zuckerberg", 18)
-    };
 
     /*
     creating basic stream of Stream<> object - Stream<T> name = Stream.of(<T> elements);

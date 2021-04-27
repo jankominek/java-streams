@@ -15,7 +15,7 @@ public class MapStream {
 
     public MapStream(){
         employees = Arrays.asList(
-                  new Employee(1, "Jeff Bezos", 55),
+                new Employee(1, "Jeff Bezos", 55),
                 new Employee(2, "Bill Gates", 34),
                 new Employee(3, "Mark Zuckerberg", 18),
                 new Employee(4, "Jimmy Rose", 39),

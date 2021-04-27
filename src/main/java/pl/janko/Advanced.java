@@ -66,6 +66,39 @@ public class Advanced {
     }
 
 
+    public void mapToIntDoubleFunction(){
+        System.out.println("\n mapToIntDoubleFunction --------");
+    /*
+    MapToInt works similary to map(String::length) - return intStream [ intermediate operation ]
+     */
+
+        List<String> str = Arrays.asList("aaa", "bbbb", "ccccc", "dddddd");
+        List<Integer> intMap = new ArrayList<>();
+        List<Double> doubleMap = new ArrayList<>();
+        // mapToInt, mapToDouble, mapToLong doesn't work with collectors.. so if we want to have result in other list we need to put it manually
+        // like in this example
+        str.stream().mapToInt( i -> i.length()).forEach(intMap::add);
+        System.out.println("intMap :  " + intMap);
+        // mapToDouble example (simillary)
+        str.stream().mapToDouble( i -> i.length()).forEach(doubleMap::add);
+        System.out.println("doubleMap :  " + doubleMap);
+
+    /*
+                            another example/tip !!
+        we can use boxed() method to solve this problem
+        boxed() method return stream of each element which is boxed to Integer
+
+     */
+        System.out.println("solved problem !");
+        List<Integer> solved = str.stream().mapToInt(i -> i.length()).boxed().collect(Collectors.toList());
+        System.out.println("Boxed list -> " + solved);
+    }
+
+    public void reduceFunction(){
+
+    }
+
+
 
 
     /*

@@ -7,16 +7,9 @@ import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+
 public class FilterStream {
 
-    List<Employee> employees = Arrays.asList(new Employee[]{
-            new Employee(1, "John", 23),
-            new Employee(2, "mark", 34),
-            new Employee(3, "andrew", 18),
-            new Employee(4, "Tom", 25),
-            new Employee(5, "Jonas", 34),
-            new Employee(6, "James", 18)
-    });
 
     public FilterStream(){
 
@@ -53,10 +46,10 @@ public class FilterStream {
     }
     public void filterWithTwoArguments(){
 
-        List<Employee> employees1 = employees.stream().filter(employee -> employee.getName().startsWith("J") && employee.getAge() < 25).collect(Collectors.toList());
-        for(Employee emp : employees1){
-            System.out.println(emp.getId() + "  " + emp.getName() + "  " + emp.getAge());
-        }
+//        List<Employee> employees1 = employees.stream().filter(employee -> employee.getName().startsWith("J") && employee.getAge() < 25).collect(Collectors.toList());
+//        for(Employee emp : employees1){
+//            System.out.println(emp.getId() + "  " + emp.getName() + "  " + emp.getAge());
+//        }
     }
 
 
