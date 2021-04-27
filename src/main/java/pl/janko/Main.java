@@ -21,6 +21,8 @@ public class Main {
         advancedStreams.example2Sorting();
         advancedStreams.example3Peek();
         advancedStreams.mapToIntDoubleFunction();
+        advancedStreams.parallelFunction();
+        advancedStreams.reduceFunction();
 
 
 

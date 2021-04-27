@@ -93,11 +93,56 @@ public class Advanced {
         List<Integer> solved = str.stream().mapToInt(i -> i.length()).boxed().collect(Collectors.toList());
         System.out.println("Boxed list -> " + solved);
     }
-
     public void reduceFunction(){
+        /*
+               reduction stream operations allow us to produce one single result from a sequence of elements
+                    § identity - initial value if stream is empty
+                    § accumulator - function with two arguments of the reduction operation
+                    § Combiner - used for combine results of substreams / example / when we use different types in reduce function
+
+         */
+        System.out.println("\nreduceFunction ------ \n");
+        List<Integer> intList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        System.out.println(intList);
+        //sum all elements of list without Combiner
+        Integer res1 = intList.stream().reduce(0, (x, y) -> x + y);
+        System.out.println("result of sum -> " + res1);
+        // the same with method reference
+        Integer res2 = intList.stream().reduce(0, Integer::sum);
+        System.out.println("result of sum with method reference -> " + res2);
+
+        // connected strings
+
+        List<String> stringList = Arrays.asList("a", "b", "c", "d", "e");
+        System.out.println(stringList);
+        String resStr1 = stringList.stream().reduce("", (x, y) -> x+y);
+        System.out.println("concat strings with reduce -> " + resStr1);
+
+        // Combiner
+        // explanaition : https://stackoverflow.com/questions/24308146/why-is-a-combiner-needed-for-reduce-method-that-converts-type-in-java-8
+        System.out.println("\nusing accumulatr String -> sum of String.length");
+
+        List<String> stringList2 = Arrays.asList("aaa", "bbbb", "ccccc");
+        System.out.println(stringList2);
+        Integer intListRes = stringList2.stream().reduce(0, (accuX,y)->accuX + y.length(), (accuX, accuZ) -> accuX + accuZ);
+        System.out.println("intListRes -> " + intListRes);
 
     }
+    public void parallelFunction(){
+        /*
+                .parallel() is used to making parallel stream ( not sequential ) for better performance
 
+                example :
+         */
+        //Stream intStream = Stream.of(1, 2, 3, 4, 5, 6);
+        System.out.println("\nParallelFuntion ---- \n");
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        System.out.println("integers -> " + integers);
+        List<Integer> intList = integers.parallelStream().collect(Collectors.toList());
+        System.out.println("intList -> " + intList);
+        //print in random order dependently from threads
+        integers.parallelStream().forEach(System.out::println);
+    }
 
 
 
