@@ -15,12 +15,10 @@ public class Main {
 
         mapStream.toUpper();
         mapStream.getObjectValue();
-        mapStream.getLengthOfStrings();
 
         advancedStreams.example1();
         advancedStreams.example2Sorting();
         advancedStreams.example3Peek();
-
 
 
         //basicStream();
