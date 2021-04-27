@@ -15,7 +15,7 @@ public class MapStream {
 
     public MapStream(){
         employees = Arrays.asList(
-                new Employee(1, "Jeff Bezos", 55),
+                  new Employee(1, "Jeff Bezos", 55),
                 new Employee(2, "Bill Gates", 34),
                 new Employee(3, "Mark Zuckerberg", 18),
                 new Employee(4, "Jimmy Rose", 39),
@@ -43,6 +43,18 @@ public class MapStream {
 
         List<String> strRes2 = employees.stream().map(Employee::getName).map(String::toUpperCase).collect(Collectors.toList());
         System.out.println(strRes2);
+    }
+
+    public void getLengthOfStrings(){
+        System.out.println("\nStrings length --------------\n");
+        List<String> str = Arrays.asList("aaa", "bbbb", "ccccc", "dddddd");
+        System.out.println(str);
+        //using lambda expression
+        List<Integer> lengthStrings = str.stream().map(l -> l.length()).collect(Collectors.toList());
+        //using method reference
+        //List<Integer> lengthStrings = str.stream().map(String::length).collect(Collectors.toList());
+        System.out.println(lengthStrings + "\n");
+
     }
 
 
