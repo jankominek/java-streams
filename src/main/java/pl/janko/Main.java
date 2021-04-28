@@ -1,5 +1,8 @@
 package pl.janko;
 
+import pl.janko.exercises.exercise1.ModelExercise;
+
+import java.io.IOException;
 import java.util.stream.Stream;
 
 public class Main {
@@ -24,6 +27,11 @@ public class Main {
         advancedStreams.parallelFunction();
         advancedStreams.reduceFunction();
 
+        try {
+            ModelExercise modelExercise = new ModelExercise();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         //basicStream();
