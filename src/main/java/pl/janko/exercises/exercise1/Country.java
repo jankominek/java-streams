@@ -1,90 +1,101 @@
 package pl.janko.exercises.exercise1;
 
+import com.opencsv.bean.CsvBindByName;
+
 public class Country {
 
+    @CsvBindByName(column = "Country/Region")
+    private String country;
+    @CsvBindByName(column = "Continent")
     private String continent;
-    private String name;
-    private Integer population;
-    private Integer totalCases;
-    private Integer totalDeaths;
-    private Integer totalRecovered;
-    private Integer activeCases;
-    private Integer critical;
-    private Integer totalCases1M;
-    private Integer deaths1M;
-    private Integer totalTests;
-    private Integer tests1M;
+    @CsvBindByName(column = "Population")
+    private Double population;
+    @CsvBindByName(column = "TotalCases")
+    private Double totalCases;
+    @CsvBindByName(column = "TotalDeaths")
+    private Double totalDeaths;
+    @CsvBindByName(column = "TotalRecovered")
+    private Double totalRecovered;
+    @CsvBindByName(column = "ActiveCases")
+    private Double activeCases;
+    @CsvBindByName(column = "Serious,Critical")
+    private Double critical;
+    @CsvBindByName(column = "Tot Cases/1M pop")
+    private Double totalCases1M;
+    @CsvBindByName(column = "Deaths/1M pop")
+    private Double deaths1M;
+    @CsvBindByName(column = "TotalTests")
+    private Double totalTests;
+    @CsvBindByName(column = "Tests/1M pop")
+    private Double tests1M;
 
     //constructor
-    public Country(
-            String continent,
-            String name, Integer population,
-            Integer totalCases, Integer totalDeaths,
-            Integer totalRecovered, Integer activeCases,
-            Integer critical, Integer totalCases1M, Integer deaths1M,
-            Integer totalTests, Integer tests1M
-    ) {
-        this.continent = continent;
-        this.name = name;
-        this.population = population;
-        this.totalCases = totalCases;
-        this.totalDeaths = totalDeaths;
-        this.totalRecovered = totalRecovered;
-        this.activeCases = activeCases;
-        this.critical = critical;
-        this.totalCases1M = totalCases1M;
-        this.deaths1M = deaths1M;
-        this.totalTests = totalTests;
-        this.tests1M = tests1M;
-    }
+
 
     public String getContinent() {
         return continent;
     }
 
     public String getName() {
-        return name;
+        return country;
     }
 
-    public Integer getPopulation() {
+    public Double getPopulation() {
         return population;
     }
 
-    public Integer getTotalCases() {
+    public Double getTotalCases() {
         return totalCases;
     }
 
-    public Integer getTotalDeaths() {
+    public Double getTotalDeaths() {
         return totalDeaths;
     }
 
-    public Integer getTotalRecovered() {
+    public Double getTotalRecovered() {
         return totalRecovered;
     }
 
-    public Integer getActiveCases() {
+    public Double getActiveCases() {
         return activeCases;
     }
 
-    public Integer getCritical() {
+    public Double getCritical() {
         return critical;
     }
 
-    public Integer getTotalCases1M() {
+    public Double getTotalCases1M() {
         return totalCases1M;
     }
 
-    public Integer getDeaths1M() {
+    public Double getDeaths1M() {
         return deaths1M;
     }
 
-    public Integer getTotalTests() {
+    public Double getTotalTests() {
         return totalTests;
     }
 
-    public Integer getTests1M() {
+    public Double getTests1M() {
         return tests1M;
     }
 
 
+    @Override
+    public String toString() {
+        return "Country{" +
+                "country='" + country + '\'' +
+                ", continent='" + continent + '\'' +
+                ", population=" + population +
+                ", totalCases=" + totalCases +
+                ", totalDeaths=" + totalDeaths +
+                ", totalRecovered=" + totalRecovered +
+                ", activeCases=" + activeCases +
+                ", critical=" + critical +
+                ", totalCases1M=" + totalCases1M +
+                ", deaths1M=" + deaths1M +
+                ", totalTests=" + totalTests +
+                ", tests1M=" + tests1M +
+                '}';
+    }
 }

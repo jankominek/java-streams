@@ -29,6 +29,8 @@ public class Main {
 
         try {
             ModelExercise modelExercise = new ModelExercise();
+            //modelExercise.createKeySet();
+            modelExercise.test();
         } catch (IOException e) {
             e.printStackTrace();
         }
