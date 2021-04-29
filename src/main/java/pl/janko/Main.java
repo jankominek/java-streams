@@ -1,13 +1,15 @@
 package pl.janko;
 
+import pl.janko.exercises.exercise1.Exercise1Result;
 import pl.janko.exercises.exercise1.ModelExercise;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.stream.Stream;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         FilterStream filter = new FilterStream();
         MapStream mapStream = new MapStream();
         Advanced advancedStreams = new Advanced();
@@ -27,13 +29,8 @@ public class Main {
         advancedStreams.parallelFunction();
         advancedStreams.reduceFunction();
 
-        try {
-            ModelExercise modelExercise = new ModelExercise();
-            //modelExercise.createKeySet();
-            modelExercise.test();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Exercise1Result exercise1Result = new Exercise1Result();
+        exercise1Result.res1();
 
 
         //basicStream();
