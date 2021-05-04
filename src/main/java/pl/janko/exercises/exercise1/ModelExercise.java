@@ -13,46 +13,36 @@ import java.io.IOException;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ModelExercise {
 
-    Map<String, Country> countryMap = new TreeMap<>();
+    Map<String, List<Country>> continentsMap = new TreeMap<>();
     String fileName = "C:\\Users\\Janek\\Desktop\\java-streams\\worldometer_data.csv";
-    //List<Country> countries = new ArrayList<>();
+    List<Continent> continents = new ArrayList<>();
+
     public ModelExercise() throws FileNotFoundException {
 
+        // import data from csv file to List of Countries
+        System.out.println("\nModelExercise constructor --------------------");
         List<Country> countries = new CsvToBeanBuilder(new FileReader(fileName))
                 .withIgnoreLeadingWhiteSpace(true)
                 .withType(Country.class).build().parse();
 
+        System.out.println("countries size -> " + countries.size());
 
-        countryMap = countries.stream().collect(Collectors.toMap(Country::getContinent, Function.identity(),
-                (prevObj, newObj) -> prevObj, TreeMap::new));
+        // creating TreeMap ("continentName", Country) by grouping by
+        continentsMap = countries.stream().collect(Collectors.groupingBy(f->f.getContinent()));
 
-        System.out.println(countryMap.toString());
+        //searching element with specific key and display it by stream
+        for (Map.Entry<String, List<Country>> m : continentsMap.entrySet()){
+            if(m.getKey().equals("North America")){
+                System.out.println("size list of map -> " + m.getValue().size());
 
-
-
+                m.getValue().stream().forEach( obj -> System.out.println(obj.getName()));
+            }
+        }
     }
 
-    public List<Country> addToList(List<Country> list, Country country) {
 
-        list.add(country);
-
-        return list;
-    }
-
-    private void createTreeMap(List<Country> list){
-
-        //countryMap = list.stream().collect(Collectors.toMap(Country::getContinent, , (o1, o2) -> o1, TreeMap::new));
-
-
-    }
-
-    @Override
-    public String toString() {
-        return "ModelExercise{" +
-                "countryMap=" + countryMap +
-                '}';
-    }
 }

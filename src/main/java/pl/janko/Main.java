@@ -28,9 +28,11 @@ public class Main {
         advancedStreams.mapToIntDoubleFunction();
         advancedStreams.parallelFunction();
         advancedStreams.reduceFunction();
+        advancedStreams.flatMapFunction();
 
         Exercise1Result exercise1Result = new Exercise1Result();
         exercise1Result.res1();
+
 
 
         //basicStream();

@@ -1,5 +1,7 @@
 package pl.janko;
 
+import pl.janko.exercises.exercise1.Temp;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -8,6 +10,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Advanced {
@@ -144,7 +147,30 @@ public class Advanced {
         integers.parallelStream().forEach(System.out::println);
     }
 
+    /*
+                                    Map and FlatMap
+     */
 
+    public void flatMapFunction(){
+        System.out.println("\nflatMapFunction -------------");
+
+        List<Foo> foos = new ArrayList<>();
+        IntStream.range(1, 5).forEach(i -> foos.add(new Foo("Foo"+i)));
+        foos.forEach(f->IntStream.range(1, 4).forEach(i -> f.getBars().add(
+                new Bar("Bar" + i + " <- " + f.getName())
+        )));
+        foos.stream().flatMap(f -> f.getBars().stream()).forEach(obj -> System.out.println(obj.getName()));
+        System.out.println("\ntwo dimension List of integers using flamap: ");
+        List<List<Integer>> integers = Arrays.asList(
+                Arrays.asList(1, 2, 3),
+                Arrays.asList(4, 5, 6),
+                Arrays.asList(7, 8, 9)
+        );
+        System.out.println("before: ->  " + integers);
+        // We can use also flatMap(Collection::stream)
+        List<Integer> result2d = integers.stream().flatMap(s -> s.stream()).collect(Collectors.toList());
+        System.out.println("after: ->  " + result2d);
+    }
 
     /*
         extra functions
